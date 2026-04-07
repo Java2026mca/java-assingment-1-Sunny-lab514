@@ -16,7 +16,6 @@ public class Main {
 
         // Bubble Sort
         for (int i = 0; i < n - 1; i++) {
-            boolean swapped = false;
 
             for (int j = 0; j < n - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
@@ -26,12 +25,8 @@ public class Main {
                     arr[j + 1] = temp;
 
                     swaps++;
-                    swapped = true;
                 }
             }
-
-            // Optimization: stop if already sorted
-            if (!swapped) break;
         }
 
         // Print sorted array
