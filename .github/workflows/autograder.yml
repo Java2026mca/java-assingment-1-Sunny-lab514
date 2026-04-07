@@ -9,15 +9,16 @@ jobs:
   grade:
     name: "Grade Submission"
     runs-on: ubuntu-latest
+    # Yahan env set karne se saare steps ke warnings dab jayenge
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
-      # v4 ko v5 kar diya jo Node 24 natively support karta hai
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
-      # setup-java ko bhi v5 (ya latest available) kar diya
       - name: Set up Java 17
-        uses: actions/setup-java@v4 # Agar v5 available na ho toh v4 hi rehne do, warning minor hai
+        uses: actions/setup-java@v4
         with:
           java-version: "17"
           distribution: "temurin"
@@ -38,6 +39,7 @@ jobs:
           done
           if [ $FAIL -eq 1 ]; then echo "Fix compilation errors first." && exit 1; fi
 
+      # --- Q01 to Q10 steps remains the same ---
       - name: Q01 — Hollow Diamond Pattern
         run: |
           cp .grader/q01/Grader.java .
