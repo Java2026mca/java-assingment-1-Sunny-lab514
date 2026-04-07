@@ -53,8 +53,14 @@ for (int i = 0; i < n; i++) {
 
 // Diagonal sum
 int sum = 0;
+
 for (int i = 0; i < n; i++) {
     sum += arr[i][i];
+    sum += arr[i][n - 1 - i];
+}
+
+if (n % 2 == 1) {
+    sum -= arr[n/2][n/2];
 }
 
 System.out.println("Diagonal: " + sum);
