@@ -9,6 +9,9 @@ jobs:
   grade:
     name: "Grade Submission"
     runs-on: ubuntu-latest
+    # Ye line Node.js 20 ki deprecation warning ko bypass kar degi
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout
