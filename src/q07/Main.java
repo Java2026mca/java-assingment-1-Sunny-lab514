@@ -6,39 +6,35 @@ public class Main {
         int n = sc.nextInt();
         int[] arr = new int[n];
 
-        // Input
+        // Input array
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
 
         int swaps = 0;
 
-        //  Correct Bubble Sort counting as per grader
+        //  Bubble Sort (classic, all passes, every swap counted)
         for (int i = 0; i < n - 1; i++) {
-            int lastSwapIndex = 0;  // Track last position where swap occurred in this pass
-
             for (int j = 0; j < n - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
-                    // swap
+                    // Swap elements
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
 
-                    lastSwapIndex = j + 1; // Update last swap index
+                    swaps++; // Count every swap
                 }
             }
-
-            swaps += lastSwapIndex; // Only sum last swap position per pass
         }
 
-        // Print sorted array
+        // Print sorted array (space-separated)
         for (int i = 0; i < n; i++) {
             System.out.print(arr[i]);
             if (i < n - 1) System.out.print(" ");
         }
         System.out.println();
 
-        // Print swap count
+        // Print total swaps
         System.out.println("Swaps: " + swaps);
     }
 }
