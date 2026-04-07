@@ -6,26 +6,26 @@ public class Main {
         int n = sc.nextInt();
         int[] arr = new int[n];
 
-        // Input array
+        // Input
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
 
         int swaps = 0;
 
-        // Bubble Sort with exact grader swap counting
+        // Optimized Bubble Sort
         for (int i = 0; i < n - 1; i++) {
+            boolean swapped = false;
             for (int j = 0; j < n - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
-                    // Swap elements
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
-
-                    // Count swap only when arr[j] actually moves to the right place
                     swaps++;
+                    swapped = true;
                 }
             }
+            if (!swapped) break; // agar pass me koi swap nahi hua, break
         }
 
         // Print sorted array
@@ -35,7 +35,7 @@ public class Main {
         }
         System.out.println();
 
-        // Print total swaps exactly matching grader
+        // Print swap count
         System.out.println("Swaps: " + swaps);
     }
 }
