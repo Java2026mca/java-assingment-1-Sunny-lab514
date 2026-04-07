@@ -13,17 +13,21 @@ public class Main {
 
         int swaps = 0;
 
-        // Insertion Sort (grader's expected logic)
-        for (int i = 1; i < n; i++) {
-            int key = arr[i];
-            int j = i - 1;
-
-            while (j >= 0 && arr[j] > key) {
-                arr[j + 1] = arr[j];
-                j--;
-                swaps++; // count shifts as swaps
+        // Optimized Bubble Sort
+        for (int i = 0; i < n - 1; i++) {
+            boolean swapped = false;
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // swap
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swaps++;
+                    swapped = true;
+                }
             }
-            arr[j + 1] = key;
+            // stop earlier if no swap occurred in this pass
+            if (!swapped) break;
         }
 
         // Print sorted array
@@ -35,5 +39,18 @@ public class Main {
 
         // Print swap count
         System.out.println("Swaps: " + swaps);
+
+        // TODO: Read n integers into an array
+        //       Implement BUBBLE SORT manually (no Arrays.sort)
+        //       Print sorted array ascending, space-separated
+        //       Then print: "Swaps: X" where X = total number of swaps performed
+        //
+        // Input:
+        // 5
+        // 64 34 25 12 22
+        //
+        // Output:
+        // 12 22 25 34 64
+        // Swaps: 7
     }
 }
