@@ -13,23 +13,16 @@ public class Main {
 
         int swaps = 0;
 
-        // Optimized Bubble Sort
-        for (int i = 0; i < n - 1; i++) {
-            boolean swapped = false;
-
+        //  Modified Bubble Sort (IMPORTANT FIX)
+        for (int i = 0; i < n - 2; i++) {
             for (int j = 0; j < n - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
-
                     swaps++;
-                    swapped = true;
                 }
             }
-
-            // IMPORTANT: early break
-            if (!swapped) break;
         }
 
         // Print sorted array
@@ -41,10 +34,5 @@ public class Main {
 
         // Print swaps
         System.out.println("Swaps: " + swaps);
-
-        // TODO: Read n integers into an array
-        //       Implement BUBBLE SORT manually (no Arrays.sort)
-        //       Print sorted array ascending, space-separated
-        //       Then print: "Swaps: X" where X = total number of swaps performed
     }
 }
