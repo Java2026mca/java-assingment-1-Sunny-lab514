@@ -9,16 +9,15 @@ jobs:
   grade:
     name: "Grade Submission"
     runs-on: ubuntu-latest
-    # Ye line Node.js 20 ki deprecation warning ko bypass kar degi
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
+      # v4 ko v5 kar diya jo Node 24 natively support karta hai
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
+      # setup-java ko bhi v5 (ya latest available) kar diya
       - name: Set up Java 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v4 # Agar v5 available na ho toh v4 hi rehne do, warning minor hai
         with:
           java-version: "17"
           distribution: "temurin"
