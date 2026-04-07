@@ -11,10 +11,10 @@ for (int i = 0; i < n; i++) {
     arr[i] = sc.nextInt();
 }
 
-// 👉 Copy array for sorting
+//  Copy array for sorting
 int[] tempArr = Arrays.copyOf(arr, n);
 
-// 👉 Count swaps (inversion count using simple method)
+//  Count swaps (inversion count using simple method)
 int swaps = 0;
 for (int i = 0; i < n; i++) {
     for (int j = i + 1; j < n; j++) {
@@ -24,7 +24,7 @@ for (int i = 0; i < n; i++) {
     }
 }
 
-// 👉 Bubble Sort (only for sorting, not counting)
+//  Bubble Sort (only for sorting, not counting)
 for (int i = 0; i < n - 1; i++) {
     for (int j = 0; j < n - i - 1; j++) {
         if (tempArr[j] > tempArr[j + 1]) {
