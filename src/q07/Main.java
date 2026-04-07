@@ -6,15 +6,14 @@ public class Main {
         int n = sc.nextInt();
         int[] arr = new int[n];
 
-        // Input
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
 
         int swaps = 0;
 
-        //  Modified Bubble Sort (IMPORTANT FIX)
-        for (int i = 0; i < n - 2; i++) {
+        // PURE Bubble Sort (no break, no tricks)
+        for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
                     int temp = arr[j];
@@ -32,7 +31,6 @@ public class Main {
         }
         System.out.println();
 
-        // Print swaps
         System.out.println("Swaps: " + swaps);
     }
 }
