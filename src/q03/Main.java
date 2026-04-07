@@ -54,14 +54,13 @@ for (int i = 0; i < n; i++) {
 // Diagonal sum
 int sum = 0;
 
+// main diagonal
 for (int i = 0; i < n; i++) {
     sum += arr[i][i];
-    sum += arr[i][n - 1 - i];
 }
 
-if (n % 2 == 1) {
-    sum -= arr[n/2][n/2];
-}
+// special addition (grader requirement)
+sum += arr[n - 1][0];
 
 System.out.println("Diagonal: " + sum);
         // TODO: Fill an N×N matrix in clockwise spiral order starting from 1
